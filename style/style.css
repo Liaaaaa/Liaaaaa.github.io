@@ -1018,7 +1018,7 @@ h6 {
   margin: 16px 0;
 }
 .post .post-content h1:before {
-  content: '∮ ';
+  content: '❀ ';
 }
 .post .post-content h2 {
   font-family: STHeiti , 'Microsoft YaHei' , "微软雅黑" , serif;
@@ -1026,7 +1026,7 @@ h6 {
   margin: 16px 0;
 }
 .post .post-content h2:before {
-  content: '∮ ';
+  content: '❀ ';
 }
 .post .post-content h3 {
   font-family: STHeiti , 'Microsoft YaHei' , "微软雅黑" , serif;
@@ -1034,7 +1034,7 @@ h6 {
   margin: 16px 0;
 }
 .post .post-content h3:before {
-  content: '∮ ';
+  content: '❀ ';
 }
 .post .post-content h4 {
   font-family: STHeiti , 'Microsoft YaHei' , "微软雅黑" , serif;
@@ -1042,7 +1042,7 @@ h6 {
   margin: 16px 0;
 }
 .post .post-content h4:before {
-  content: '∮ ';
+  content: '❀ ';
 }
 .post .post-content h5 {
   font-family: STHeiti , 'Microsoft YaHei' , "微软雅黑" , serif;
@@ -1050,7 +1050,7 @@ h6 {
   margin: 16px 0;
 }
 .post .post-content h5:before {
-  content: '∮ ';
+  content: '❀ ';
 }
 .post .post-content h6 {
   font-family: STHeiti , 'Microsoft YaHei' , "微软雅黑" , serif;
@@ -1058,7 +1058,7 @@ h6 {
   margin: 16px 0;
 }
 .post .post-content h6:before {
-  content: '∮ ';
+  content: '❀ ';
 }
 .post .post-content .content-link a {
   position: relative;
