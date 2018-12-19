@@ -1,234 +1,62 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head><meta name="generator" content="Hexo 3.8.0">
-  <link rel="stylesheet" href="/style/style.css">
-<script>
-  var nlviconfig = {
-    title: "花開清葉",
-    author: "小栗子",
-    baseUrl: "/",
-    theme: {
-      scheme: "banderole",
-      lightbox: true,
-      animate: true,
-      search: false,
-      friends: false,
-      reward: false,
-      lazy: false
-    }
-  }
-</script>
-
-
-
-
-    <link rel="stylesheet" href="/script/lib/lightbox/css/lightbox.min.css">
-
-
-
-
-    <link rel="stylesheet" href="/syuanpi/syuanpi.min.css">
-
-
-
-
-    <link rel="icon" href="/favicon.svg">
-
-
-
-
-
-
-
-
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="browsermode" content="application">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="花開清葉">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="msapplication-navbutton-color" content="#666666">
-<meta name="format-detection" content="telephone=no">
-<meta name="keywords" content="nlvi, Nlvi">
-
-  <link rel="apple-touch-icon" sizes="72x72" href="/favicon.svg">
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/favicon.svg">
-
-
-
-
-
-  <meta name="keywords" content="Unity3D, Nlvi">
-
-  <title> Unity3D 总结 · 花開清葉 </title>
+  <meta charset="utf-8">
+  
+  <title>Unity3D 总结 | 花開清葉</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="TerrainData - GetHeight 改成根据世界坐标来获取地形上的高度内置方法需要用在高度图内的x, y的索引值才能获得高度，利用竖直Ray就可以根据世界坐标中的x,z来获得地形上的y。12345678Vector3 GetHeightInTerrain(Terrain terrain, float x, float y)&amp;#123;    Ray ray = new Ray(new">
+<meta name="keywords" content="Unity3D">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity3D 总结">
+<meta property="og:url" content="http://liaaaaa.github.io/2018/12/Unity3D-总结/index.html">
+<meta property="og:site_name" content="花開清葉">
+<meta property="og:description" content="TerrainData - GetHeight 改成根据世界坐标来获取地形上的高度内置方法需要用在高度图内的x, y的索引值才能获得高度，利用竖直Ray就可以根据世界坐标中的x,z来获得地形上的y。12345678Vector3 GetHeightInTerrain(Terrain terrain, float x, float y)&amp;#123;    Ray ray = new Ray(new">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-19T11:46:29.842Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Unity3D 总结">
+<meta name="twitter:description" content="TerrainData - GetHeight 改成根据世界坐标来获取地形上的高度内置方法需要用在高度图内的x, y的索引值才能获得高度，利用竖直Ray就可以根据世界坐标中的x,z来获得地形上的y。12345678Vector3 GetHeightInTerrain(Terrain terrain, float x, float y)&amp;#123;    Ray ray = new Ray(new">
+  
+  <link rel="stylesheet" href="/css/index.css">
 </head>
-<body>
-  <div class="progress">
-  <div class="progress-inner"></div>
-</div>
+</html>
+<body style="
 
-  
-    <div class="tagcloud-mask"></div>  
-<div class="tagcloud" id="tagcloud">
-  <div class="tagcloud-inner">
-    <a href="/tags/Unity3D/" style="font-size: 14px;">Unity3D</a>
+
+  background-color: #eff0f6
+
+">
+  <div id="container">
+    <nav id="nav">
+  <header class="header">
+    <a href="/" class="title">Clover Tuan</a>
+  </header>
+  <div class="ctnWrap">
+    <div class="icons">
+      
+    </div>
+    <div class="menu">
+      
+        
+            <a href="/" class="nav-menu ">HOME</a>
+          
+        
+            <a href="/archives" class="nav-menu ">ARCHIVE</a>
+          
+        
+            <a href="/about" class="nav-menu ">ABOUT</a>
+          
+        
+      
+    </div>
   </div>
-</div>
-  
-
-  <div class="container" style="display:none;">
-
-    <header class="header" id="header">
-  <div class="header-wrapper">
-    <div class="logo">
-  <div class="logo-inner syuanpi tvIn">
-    <span><a href="/">花開清葉</a></span>
-    
-  </div>
-</div>
-    <nav class="main-nav">
-  
-  <ul class="main-nav-list syuanpi tvIn">
-  
-  
-    
-      
-    
-    <li class="menu-item">
-      <a href="/" id="article">
-        <span class="base-name">文章</span>
-        
-          <span class="menu-item-label">article</span>
-        
-      </a>
-    </li>
-  
-    
-      
-    
-    <li class="menu-item">
-      <a href="/archives" id="archives">
-        <span class="base-name">归档</span>
-        
-          <span class="menu-item-label">archives</span>
-        
-      </a>
-    </li>
-  
-    
-      
-    
-    <li class="menu-item">
-      <a href="javascript:;" id="tags">
-        <span class="base-name">标签</span>
-        
-          <span class="menu-item-label">tags</span>
-        
-      </a>
-    </li>
-  
-  </ul>
-  
 </nav>
-
-    
-    
-  </div>
-</header>
-<div class="mobile-header">
-  <div class="mobile-header-body">
-    <div class="mobile-header-list">
-      
-        
-            <div class="mobile-nav-item">
-                <a href="/">
-                    <span>文章</span>
-                    
-                        <span class="menu-item-label">article</span>
-                    
-                </a>
-            </div>
-        
-      
-        
-            <div class="mobile-nav-item">
-                <a href="/archives">
-                    <span>归档</span>
-                    
-                        <span class="menu-item-label">archives</span>
-                    
-                </a>
-            </div>
-        
-      
-        
-          <div class="mobile-nav-item inner-cloud">
-            <div class="mobile-nav-tag">
-              <a href="javascript:;" id="mobile-tags">
-                <span>标签</span>
-                
-                    <span class="menu-item-label">tags</span>
-                
-              </a>
-            </div>
-            <div class="mobile-nav-tagcloud">
-              <div class="mobile-tagcloud-inner">
-                <a href="/tags/Unity3D/" style="font-size: 14px;">Unity3D</a>
-              </div>
-            </div>
-          </div>
-        
-      
-    </div>
-  </div>
-  <div class="mobile-header-nav">
-    <div class="mobile-header-item" id="mobile-left">
-      <div class="header-menu-item">
-        <span class="header-menu-line"></span>
-      </div>
-    </div>
-    <h1 class="mobile-header-title">
-      <a href="/">花開清葉</a>
-    </h1>
-    <div class="mobile-header-item"></div>
-  </div>
-</div>
-    <div class="container-inner">
-      <main class="main" id="main">
-        <div class="main-wrapper">
-          
-    
-  
-  <article class="
-  post
-   is_post 
-  ">
-    <header class="post-header">
-      <div class="post-time syuanpi fadeInUpShort back-1">
-        <div class="post-time-wrapper">
-          <span>2018-12-19</span>
-          
-          
-            
-              <aside class="post-tags syuanpi fadeInUpShort back-3">
-              
-                <a href="/tags/Unity3D/">Unity3D</a>
-              
-              </aside>
-            
-          
-        </div>
-      </div>
-      <h1 class="post-title syuanpi fadeInUpShort back-2">
-        
-          Unity3D 总结
-        
-      </h1>
-    </header>
-    <div class="post-content syuanpi fadeInUpShort back-3">
-      
-        <hr>
+    <div id="main"><section class="article">
+  <h2 class="title">Unity3D 总结</h2>
+  <p class="sub">12月 19, 2018</p>
+  <article class="content">
+    <hr>
 <h3 id="TerrainData-GetHeight-改成根据世界坐标来获取地形上的高度"><a href="#TerrainData-GetHeight-改成根据世界坐标来获取地形上的高度" class="headerlink" title="TerrainData - GetHeight 改成根据世界坐标来获取地形上的高度"></a>TerrainData - GetHeight 改成根据世界坐标来获取地形上的高度</h3><p>内置方法需要用在高度图内的x, y的索引值才能获得高度，利用竖直Ray就可以根据世界坐标中的x,z来获得地形上的y。<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Vector3 <span class="title">GetHeightInTerrain</span>(<span class="params">Terrain terrain, <span class="keyword">float</span> x, <span class="keyword">float</span> y</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Ray ray = <span class="keyword">new</span> Ray(<span class="keyword">new</span> Vector3(x, <span class="number">0</span>, y), Vector3.up);</span><br><span class="line">    RaycastHit hit;</span><br><span class="line">    <span class="keyword">if</span> (Physics.Raycast(ray, <span class="keyword">out</span> hit, Mathf.Infinity))</span><br><span class="line">        <span class="keyword">return</span> hit.point;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Vector3(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>弊端是如果地形上没有这个点，返回的这个点可能需要在调用的地方做个判断。</p>
 <hr>
@@ -236,240 +64,19 @@
 <hr>
 <h3 id="Terrian-Settings-Base-Terrain-Material-Custom-shader-用代码切换-参考"><a href="#Terrian-Settings-Base-Terrain-Material-Custom-shader-用代码切换-参考" class="headerlink" title="Terrian Settings - Base Terrain - Material:Custom - shader 用代码切换 参考"></a>Terrian Settings - Base Terrain - Material:Custom - shader 用代码切换 <a href="https://blog.csdn.net/thebluewing/article/details/72820162" target="_blank" rel="noopener">参考</a></h3><p>Material不变，转而切换该材料所用的shader。<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">terrain.materialTemplate.shader = Shader.Find(<span class="string">"Custom/myShader"</span>);</span><br></pre></td></tr></table></figure></p>
 
-      
-    
-    </div>
-    
-      
-
-      
-  <hr class="copy-line">
-  <div class="post-copyright">
-    <div class="copy-author">
-      <span>作者 :</span>
-      <span>小栗子</span>
-    </div>
-    <div class="copy-url">
-      <span>地址 :</span>
-      <a href="http://liaaaaa.github.io/2018/12/Unity3D-总结/">http://liaaaaa.github.io/2018/12/Unity3D-总结/</a>
-    </div>
-    <div class="copy-origin">
-      <span>来源 :</span>
-      <a href="http://liaaaaa.github.io">http://liaaaaa.github.io</a>
-    </div>
-    <div class="copy-license">
-      
-      著作权归作者所有，转载请联系作者获得授权。
-    </div>
-  </div>
-
-    
   </article>
-  
-    
-  <nav class="article-page">
+  <footer class="f-cf">
     
     
-      <a href="/2018/12/hello-world/" id="art-right" class="art-right">
-        <span class="prev-title"> 
-          Hello World<i class="iconfont icon-right"></i>  
-        </span>
-      </a>
+      <a href="/2018/12/hello-world/" class="link f-fr">Hello World⟶</a>
     
-  </nav>
-
-    
-  <i id="com-switch" class="iconfont icon-more jumping-in long infinite" style="font-size:24px;display:block;text-align:center;transform:rotate(180deg);"></i>
-  <div class="post-comments" id="post-comments" style="display: block;margin: auto 16px;">
-    
-    
-    
-
-    
-
-  </div>
-
-
-
+  </footer>
+</section></div>
+    <footer id="footer" class="f-cf">
   
   
-    
-  
-  <aside class="post-toc">
-    <span class="title" id="toc-switch"><span>文章导航</span></span>
-    <div class="toc-inner syuanpi back-1" style="display:none;">
-      <li class="title-link"><a href="javascript:;" class="toTop">Unity3D 总结</a></li>
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#TerrainData-GetHeight-改成根据世界坐标来获取地形上的高度"><span class="toc-text">TerrainData - GetHeight 改成根据世界坐标来获取地形上的高度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Terrain-Paint-Texture-Textures-用代码切换-参考"><span class="toc-text">Terrain - Paint Texture - Textures 用代码切换 参考</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Terrian-Settings-Base-Terrain-Material-Custom-shader-用代码切换-参考"><span class="toc-text">Terrian Settings - Base Terrain - Material:Custom - shader 用代码切换 参考</span></a></li></ol>
-    </div>
-  </aside>
-
-
-
-  
-
-
-        </div>
-      </main>
-
-      <footer class="footer syuanpi fadeIn" id="footer">
-  <hr>
-  <div class="footer-wrapper">
-    <div class="left">
-      <div class="contact-icon">
-    
-    
-    
-    
-    
-    
-    
-    
-    
-        
-        
-        
-        
-        
-            <a href="https://www.facebook.com/" class="iconfont icon-social-facebook" title="facebook"></a>
-        
-        
-        
-        
-    
-        
-        
-        
-            <a href="https://twitter.com/" class="iconfont icon-social-twitter" title="twitter"></a>
-        
-        
-        
-        
-        
-        
-    
-        
-        
-        
-        
-        
-        
-        
-            <a href="" class="iconfont icon-social-instagram" title="instagram"></a>
-        
-        
-    
-        
-        
-            <a href="https://weibo.com/" class="iconfont icon-social-weibo" title="weibo"></a>
-        
-        
-        
-        
-        
-        
-        
-    
-        
-        
-        
-        
-            <a href="https://www.zhihu.com/people/" class="iconfont icon-zhihu" title="zhihu"></a>
-        
-        
-        
-        
-        
-    
-        
-            <a href="https://github.com/" class="iconfont icon-social-github" title="github"></a>
-        
-        
-        
-        
-        
-        
-        
-        
-    
-        
-        
-        
-        
-        
-        
-            <a href="https://www.linkedin.com/in/" class="iconfont icon-social-linkedin" title="linkedin"></a>
-        
-        
-        
-    
-        
-        
-        
-        
-        
-        
-        
-        
-            <a href="https://www.douban.com/people/" class="iconfont icon-social-douban" title="douban"></a>
-        
-    
-</div>
-
-    </div>
-    <div class="right">
-      <div class="copyright">
-    <div class="info">
-        <span>&copy;</span>
-        <span>2018 ~ 2018</span>
-        <span>❤</span>
-        <span>小栗子</span>
-    </div>
-    <div class="theme">
-        <span>
-            动力来源于
-            <a href="http://hexo.io/" target="_blank">Hexo </a>
-        </span>
-        <span>
-            主题
-            <a href="https://github.com/ColMugX/hexo-theme-Nlvi"> Nlvi </a>
-        </span>
-    </div>
-    
-</div>
-
-    </div>
-  </div>
+  <span class="copyright"></span>
 </footer>
-    </div>
   </div>
-  <script src="/script/lib/jquery/jquery-3.2.1.min.js"></script>
-
-
-  <script src="/script/lib/lightbox/js/lightbox.min.js"></script>
-
-
-
-  <script src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  <script type="text/x-mathjax-config;executed=true">MathJax.Hub.Config({tex2jax: {inlineMath: [["$","$"], ["\\(","\\)"]]}});</script>
-
-
-
-
-
-
-<script src="/script/src/nlvi.js"></script>
-
-  <script src="/script/scheme/banderole.js"></script>
-
-<script src="/script/bootstarp.js"></script>
-
-
-<div class="backtop syuanpi melt toTop" id="backtop">
-    <i class="iconfont icon-up"></i>
-    <span style="text-align:center;font-family:Georgia;"><span style="font-family:Georgia;" id="scrollpercent">1</span>%</span>
-</div>
-
-
-
 </body>
 </html>
