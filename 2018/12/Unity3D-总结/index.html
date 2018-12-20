@@ -1,144 +1,92 @@
 <!DOCTYPE html>
-<html lang=zh>
+<html>
 <head><meta name="generator" content="Hexo 3.8.0">
-    <!-- so meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="TerrainDataGetHeight 改成根据世界坐标来获取地形上的高度内置方法需要用在高度图内的x, y的索引值才能获得高度，利用竖直Ray，利用内置方法terrain.SampleHeight(Vector3)就可以根据世界坐标中的x,z来获得地形上的y。12345678Vector3 GetHeightInTerrain(Terrain terrain, float x, float y">
-<meta name="keywords" content="Unity3D">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Unity3D 总结">
-<meta property="og:url" content="http://liaaaaa.github.io/2018/12/Unity3D-总结/index.html">
-<meta property="og:site_name" content="花開清葉">
-<meta property="og:description" content="TerrainDataGetHeight 改成根据世界坐标来获取地形上的高度内置方法需要用在高度图内的x, y的索引值才能获得高度，利用竖直Ray，利用内置方法terrain.SampleHeight(Vector3)就可以根据世界坐标中的x,z来获得地形上的y。12345678Vector3 GetHeightInTerrain(Terrain terrain, float x, float y">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-12-20T08:06:25.532Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Unity3D 总结">
-<meta name="twitter:description" content="TerrainDataGetHeight 改成根据世界坐标来获取地形上的高度内置方法需要用在高度图内的x, y的索引值才能获得高度，利用竖直Ray，利用内置方法terrain.SampleHeight(Vector3)就可以根据世界坐标中的x,z来获得地形上的y。12345678Vector3 GetHeightInTerrain(Terrain terrain, float x, float y">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta name="keywords" content="hexo, autumn">
+    <title>
+        花開清葉
+    </title>
+    <!-- favicon -->
     
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/favicon.ico">
     
-        
-          
-              <link rel="shortcut icon" href="/images/a.ico">
-          
-        
-        
-          
-            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
-          
-        
-        
-          
-            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-          
-        
-    
-    <!-- title -->
-    <title>Unity3D 总结</title>
-    <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
-    <!-- persian styles -->
-    
-      <link rel="stylesheet" href="/css/rtl.css">
-    
-    <!-- rss -->
-    
-    
+
+    <!-- highlight -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css">
+    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad()
+    </script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@1.0.0/dist/hexo-infinite-scroll.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@1.0.0/dist/hexo-infinite-scroll.min.js"></script>
+    <script>
+        infiniteScroll()
+
+        // for mobile menu
+        $(function () {
+            $('.social-button').click(function () {
+                if ($('.social-links').hasClass('hide-links')) {
+                    $('.social-links').removeClass('hide-links')
+                } else {
+                    $('.social-links').addClass('hide-links')
+                }
+            })
+        })
+    </script>
 </head>
 
-<body class="max-width mx-auto px3 ltr">
-    
-      <div id="header-post">
-  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
-  <span id="menu">
-    <span id="nav">
-      <ul>
-         
-          <li><a href="/">首页</a></li>
-         
-          <li><a href="/archives/">归档</a></li>
-        
-      </ul>
-    </span>
-    <br>
-    <span id="actions">
-      <ul>
-        
-        
-        <li><a class="icon" href="/2018/12/hello-world/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
-        
-        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
-      </ul>
-      <span id="i-prev" class="info" style="display:none;">上一篇</span>
-      <span id="i-next" class="info" style="display:none;">下一篇</span>
-      <span id="i-top" class="info" style="display:none;">返回顶部</span>
-      <span id="i-share" class="info" style="display:none;">分享文章</span>
-    </span>
-    <br>
-    <div id="share" style="display: none">
-      <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://liaaaaa.github.io/2018/12/Unity3D-总结/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://liaaaaa.github.io/2018/12/Unity3D-总结/&text=Unity3D 总结"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://liaaaaa.github.io/2018/12/Unity3D-总结/&title=Unity3D 总结"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://liaaaaa.github.io/2018/12/Unity3D-总结/&is_video=false&description=Unity3D 总结"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Unity3D 总结&body=Check out this article: http://liaaaaa.github.io/2018/12/Unity3D-总结/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://liaaaaa.github.io/2018/12/Unity3D-总结/&title=Unity3D 总结"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://liaaaaa.github.io/2018/12/Unity3D-总结/&title=Unity3D 总结"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://liaaaaa.github.io/2018/12/Unity3D-总结/&title=Unity3D 总结"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://liaaaaa.github.io/2018/12/Unity3D-总结/&title=Unity3D 总结"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://liaaaaa.github.io/2018/12/Unity3D-总结/&name=Unity3D 总结&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-    <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#TerrainData"><span class="toc-number">1.</span> <span class="toc-text">TerrainData</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GetHeight-改成根据世界坐标来获取地形上的高度"><span class="toc-number">1.1.</span> <span class="toc-text">GetHeight 改成根据世界坐标来获取地形上的高度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TreeInstances"><span class="toc-number">1.2.</span> <span class="toc-text">TreeInstances</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Terrian-Settings-Base-Terrain-Material-Custom-shader-用代码切换"><span class="toc-number">1.3.</span> <span class="toc-text">Terrian Settings - Base Terrain - Material:Custom - shader 用代码切换</span></a></li></ol></li></ol>
-    </div>
-  </span>
-</div>
-
-    
-    <div class="content index py4">
-        
-        <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
-  <header>
-    
-    <h1 class="posttitle" itemprop="name headline">
-        Unity3D 总结
+    <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
+        <div class="container">
+            <header class="header">
+    <h1 class="title">
+        <a href="/" class="logo">
+            花開清葉
+        </a>
     </h1>
+    <h2 class="desc">
+        
+    </h2>
 
-
-
-    <div class="meta">
-      <span class="author" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-        <span itemprop="name">花開清葉</span>
-      </span>
-      
-    <div class="postdate">
-        <time datetime="2018-12-19T10:48:50.000Z" itemprop="datePublished">2018-12-19</time>
-    </div>
-
-
-      
-
-      
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/Unity3D/">Unity3D</a>
-    </div>
-
-
-    </div>
-  </header>
-  
-
-  <div class="content" itemprop="articleBody">
-    <h2 id="TerrainData"><a href="#TerrainData" class="headerlink" title="TerrainData"></a>TerrainData</h2><h3 id="GetHeight-改成根据世界坐标来获取地形上的高度"><a href="#GetHeight-改成根据世界坐标来获取地形上的高度" class="headerlink" title="GetHeight 改成根据世界坐标来获取地形上的高度"></a>GetHeight 改成根据世界坐标来获取地形上的高度</h3><p>内置方法需要用在高度图内的x, y的索引值才能获得高度，<del>利用竖直Ray</del>，利用内置方法terrain.SampleHeight(Vector3)就可以根据世界坐标中的x,z来获得地形上的y。<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Vector3 <span class="title">GetHeightInTerrain</span>(<span class="params">Terrain terrain, <span class="keyword">float</span> x, <span class="keyword">float</span> y</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Ray ray = <span class="keyword">new</span> Ray(<span class="keyword">new</span> Vector3(x, <span class="number">0</span>, y), Vector3.up);</span><br><span class="line">    RaycastHit hit;</span><br><span class="line">    <span class="keyword">if</span> (Physics.Raycast(ray, <span class="keyword">out</span> hit, Mathf.Infinity))</span><br><span class="line">        <span class="keyword">return</span> hit.point;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Vector3(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+    <nav class="links">
+        <button class="social-button">
+            menu
+        </button>
+        <ul class="social-links hide-links">
+            
+                <li>
+                    <a href="https://github.com/FrontendSophie">
+                        Github
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://www.linkedin.com/in/frontendsophie/">
+                        LinkedIn
+                    </a>
+                </li>
+                
+        </ul>
+    </nav>
+</header>
+                <main class="main">
+                    <article class="post">
+    
+            <h2 class="post-title">
+                Unity3D 总结
+            </h2>
+            <ul class="post-date">
+                <li>
+                    2018-12-19
+                </li>
+                <li>
+                    小栗子
+                </li>
+            </ul>
+            <div class="post-content">
+                <h2 id="TerrainData"><a href="#TerrainData" class="headerlink" title="TerrainData"></a>TerrainData</h2><h3 id="GetHeight-改成根据世界坐标来获取地形上的高度"><a href="#GetHeight-改成根据世界坐标来获取地形上的高度" class="headerlink" title="GetHeight 改成根据世界坐标来获取地形上的高度"></a>GetHeight 改成根据世界坐标来获取地形上的高度</h3><p>内置方法需要用在高度图内的x, y的索引值才能获得高度，<del>利用竖直Ray</del>，利用内置方法terrain.SampleHeight(Vector3)就可以根据世界坐标中的x,z来获得地形上的y。<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Vector3 <span class="title">GetHeightInTerrain</span>(<span class="params">Terrain terrain, <span class="keyword">float</span> x, <span class="keyword">float</span> y</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Ray ray = <span class="keyword">new</span> Ray(<span class="keyword">new</span> Vector3(x, <span class="number">0</span>, y), Vector3.up);</span><br><span class="line">    RaycastHit hit;</span><br><span class="line">    <span class="keyword">if</span> (Physics.Raycast(ray, <span class="keyword">out</span> hit, Mathf.Infinity))</span><br><span class="line">        <span class="keyword">return</span> hit.point;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Vector3(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p><del>弊端是如果地形上没有这个点，返回的这个点可能需要在调用的地方做个判断。</del></p>
 <hr>
 <h3 id="TreeInstances"><a href="#TreeInstances" class="headerlink" title="TreeInstances"></a>TreeInstances</h3><p>先是建了一些树，一开始还煞费苦心想得到世界坐标系中完美的地形上的种树点，最后发现y值根本不重要。随机出0~1f范围内的x和z就可以直接建树了。<br>想在退出时删掉所有树。treeInstances是内建数组，不能直接修改，需要新建数组读出，修改，再写入。</p>
@@ -147,90 +95,35 @@
 <h3 id="Terrian-Settings-Base-Terrain-Material-Custom-shader-用代码切换"><a href="#Terrian-Settings-Base-Terrain-Material-Custom-shader-用代码切换" class="headerlink" title="Terrian Settings - Base Terrain - Material:Custom - shader 用代码切换"></a>Terrian Settings - Base Terrain - Material:Custom - shader 用代码切换</h3><p>Material不变，转而切换该材料所用的shader。<br><strong>参考</strong>:<a href="https://blog.csdn.net/thebluewing/article/details/72820162" target="_blank" rel="noopener">unity修改材质属性和更换shader</a><br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">terrain.materialTemplate.shader = Shader.Find(<span class="string">"Custom/myShader"</span>);</span><br></pre></td></tr></table></figure></p>
 <hr>
 
-  </div>
+            </div>
 </article>
 
+                </main>
+                <aside class="aside">
+                    <section class="aside-section">
+                        
+    <h1>Categories</h1>
+
+    
+
+                    </section>
+                    <section class="aside-section">
+                        
+    <h1>Archives</h1>
+
+    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a></li></ul>
 
 
-        
-          <div id="footer-post-container">
-  <div id="footer-post">
+                    </section>
+                    <section class="aside-section tag">
+                        
+    <h1>Tags</h1>
 
-    <div id="nav-footer" style="display: none">
-      <ul>
-         
-          <li><a href="/">首页</a></li>
-         
-          <li><a href="/archives/">归档</a></li>
-        
-      </ul>
-    </div>
+    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unity3D/">Unity3D</a></li></ul>
 
-    <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#TerrainData"><span class="toc-number">1.</span> <span class="toc-text">TerrainData</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GetHeight-改成根据世界坐标来获取地形上的高度"><span class="toc-number">1.1.</span> <span class="toc-text">GetHeight 改成根据世界坐标来获取地形上的高度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TreeInstances"><span class="toc-number">1.2.</span> <span class="toc-text">TreeInstances</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Terrian-Settings-Base-Terrain-Material-Custom-shader-用代码切换"><span class="toc-number">1.3.</span> <span class="toc-text">Terrian Settings - Base Terrain - Material:Custom - shader 用代码切换</span></a></li></ol></li></ol>
-    </div>
+                    </section>
+                </aside>
+        </div>
+    </body>
 
-    <div id="share-footer" style="display: none">
-      <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://liaaaaa.github.io/2018/12/Unity3D-总结/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://liaaaaa.github.io/2018/12/Unity3D-总结/&text=Unity3D 总结"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://liaaaaa.github.io/2018/12/Unity3D-总结/&title=Unity3D 总结"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://liaaaaa.github.io/2018/12/Unity3D-总结/&is_video=false&description=Unity3D 总结"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Unity3D 总结&body=Check out this article: http://liaaaaa.github.io/2018/12/Unity3D-总结/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://liaaaaa.github.io/2018/12/Unity3D-总结/&title=Unity3D 总结"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://liaaaaa.github.io/2018/12/Unity3D-总结/&title=Unity3D 总结"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://liaaaaa.github.io/2018/12/Unity3D-总结/&title=Unity3D 总结"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://liaaaaa.github.io/2018/12/Unity3D-总结/&title=Unity3D 总结"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://liaaaaa.github.io/2018/12/Unity3D-总结/&name=Unity3D 总结&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-
-    <div id="actions-footer">
-        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
-        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
-        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
-    </div>
-
-  </div>
-</div>
-
-        
-        <footer id="footer">
-  <div class="footer-left">
-    Copyright &copy; 2018 小栗子
-  </div>
-  <div class="footer-right">
-    <nav>
-      <ul>
-         
-          <li><a href="/">首页</a></li>
-         
-          <li><a href="/archives/">归档</a></li>
-        
-      </ul>
-    </nav>
-  </div>
-</footer>
-
-    </div>
-</body>
 </html>
-<!-- styles -->
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
-
-<!-- jquery -->
-<script src="/lib/jquery/jquery.min.js"></script>
-<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
-<script src="/js/main.js"></script>
-<!-- search -->
-
-<!-- Google Analytics -->
-
-<!-- Baidu Analytics -->
-
-<!-- Disqus Comments -->
-
-
