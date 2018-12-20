@@ -1,133 +1,187 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-    <meta name="keywords" content="hexo, autumn">
-    <title>
-        花開清葉
-    </title>
-    <!-- favicon -->
-    
-    <link rel="icon" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/favicon.ico">
-    
-    <link rel="stylesheet" href="/css/style.css">
-
-    <!-- highlight -->
-    <link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/github-gist.min.css">
-    <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
-    <script>
-        hljs.initHighlightingOnLoad()
-    </script>
-    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@1.0.0/dist/hexo-infinite-scroll.min.css">
-    <script src="https://cdn.jsdelivr.net/gh/frontendsophie/hexo-infinite-scroll@1.0.0/dist/hexo-infinite-scroll.min.js"></script>
-    <script>
-        infiniteScroll()
-
-        // for mobile menu
-        $(function () {
-            $('.social-button').click(function () {
-                if ($('.social-links').hasClass('hide-links')) {
-                    $('.social-links').removeClass('hide-links')
-                } else {
-                    $('.social-links').addClass('hide-links')
-                }
-            })
-        })
-    </script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="google-site-verification" content="">
+  
+  <title>Unity3D 总结</title>
+  <meta name="author" content="小栗子">
+  <meta name="description" content="TerrainDataGetHeight 改成根据世界坐标来获取地形上的高度内置方法需要用在高度图内的x, y的索引值才能获得高度，利用竖直Ray，利用内置方法terrain.SampleHeight(Vector3)就可以根据世界坐标中的x,z来获得地形上的y。12345678Vector3 Ge">
+  
+  
+  <meta property="og:title" content="Unity3D 总结">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:site_name" content="花開清葉">
+  <link href="/apple-touch-icon-precomposed.png" sizes="180x180" rel="apple-touch-icon-precomposed">
+  <link rel="alternate" href="/atom.xml" title="花開清葉" type="application/atom+xml">
+  <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/m.min.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
+</html>
+<body>
+  <a id="top"></a>
+  <div id="main">
+    <div class="behind">
+      <a href="/" class="back black-color">
+        <svg class="i-close" viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+            <path d="M2 30 L30 2 M30 30 L2 2"></path>
+        </svg>
+      </a>
+      <div class="description">
+        &nbsp;liaaaaa是5个a啊
+      </div>
+    </div>
+    <div class="main-ctnr">
+      
 
-    <body style="background: url(https://cdn.jsdelivr.net/gh/frontendsophie/hexo-theme-autumn@1.0.0/source/img/button-bg.png) #f3f3f3">
-        <div class="container">
-            <header class="header">
-    <h1 class="title">
-        <a href="/" class="logo">
-            花開清葉
-        </a>
+  <article class="standard post">
+    <div class="title">
+      
+  
+    <h1 class="page-title center">
+        Unity3D 总结
     </h1>
-    <h2 class="desc">
-        liaaaaa是5个a啊
-    </h2>
+  
 
-    <nav class="links">
-        <button class="social-button">
-            menu
-        </button>
-        <ul class="social-links hide-links">
-            
-                <li>
-                    <a href="https://github.com/FrontendSophie">
-                        Github
-                    </a>
-                </li>
-                
-                <li>
-                    <a href="https://www.linkedin.com/in/frontendsophie/">
-                        LinkedIn
-                    </a>
-                </li>
-                
-        </ul>
-    </nav>
-</header>
-                <main class="main">
-                    <article class="post">
+
+    </div>
+    <div class="meta center">
+      
+<time datetime="2018-12-19T10:48:50.000Z">
+<svg class="i-calendar" viewbox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+    <path d="M2 6 L2 30 30 30 30 6 Z M2 15 L30 15 M7 3 L7 9 M13 3 L13 9 M19 3 L19 9 M25 3 L25 9"/>
+  </svg>
+  &nbsp;
+  2018-12-19
+</time>
+
+
+
+
+
+
     
-            <h2 class="post-title">
-                Unity3D 总结
-            </h2>
-            <ul class="post-date">
-                <li>
-                    2018-12-19
-                </li>
-                <li>
-                    小栗子
-                </li>
-            </ul>
-            <div class="post-content">
-                <h2 id="TerrainData"><a href="#TerrainData" class="headerlink" title="TerrainData"></a>TerrainData</h2><h3 id="GetHeight-改成根据世界坐标来获取地形上的高度"><a href="#GetHeight-改成根据世界坐标来获取地形上的高度" class="headerlink" title="GetHeight 改成根据世界坐标来获取地形上的高度"></a>GetHeight 改成根据世界坐标来获取地形上的高度</h3><p>内置方法需要用在高度图内的x, y的索引值才能获得高度，<del>利用竖直Ray，</del>利用内置方法terrain.SampleHeight(Vector3)就可以根据世界坐标中的x,z来获得地形上的y。<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Vector3 <span class="title">GetHeightInTerrain</span>(<span class="params">Terrain terrain, <span class="keyword">float</span> x, <span class="keyword">float</span> y</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Ray ray = <span class="keyword">new</span> Ray(<span class="keyword">new</span> Vector3(x, <span class="number">0</span>, y), Vector3.up);</span><br><span class="line">    RaycastHit hit;</span><br><span class="line">    <span class="keyword">if</span> (Physics.Raycast(ray, <span class="keyword">out</span> hit, Mathf.Infinity))</span><br><span class="line">        <span class="keyword">return</span> hit.point;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Vector3(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+    &nbsp;
+    <svg class="i-tag" viewbox="0 0 32 32" width="16" height="16" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+      <circle cx="24" cy="8" r="2"/>
+      <path d="M2 18 L18 2 30 2 30 14 14 30 Z"/>
+    </svg>
+    &nbsp;
+    <a href="/tags/Unity3D/">Unity3D</a>
+
+
+    </div>
+    <hr>
+    
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#TerrainData"><span class="toc-text">TerrainData</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GetHeight-改成根据世界坐标来获取地形上的高度"><span class="toc-text">GetHeight 改成根据世界坐标来获取地形上的高度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TreeInstances"><span class="toc-text">TreeInstances</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Terrain"><span class="toc-text">Terrain</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Paint-Texture-Textures-用代码切换"><span class="toc-text">Paint Texture - Textures 用代码切换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Terrian-Settings-Base-Terrain-Material-Custom-shader-用代码切换"><span class="toc-text">Terrian Settings - Base Terrain - Material:Custom - shader 用代码切换</span></a></li></ol></li></ol>
+    
+    <div class="picture-container">
+      
+    </div>
+    <h2 id="TerrainData"><a href="#TerrainData" class="headerlink" title="TerrainData"></a>TerrainData</h2><h3 id="GetHeight-改成根据世界坐标来获取地形上的高度"><a href="#GetHeight-改成根据世界坐标来获取地形上的高度" class="headerlink" title="GetHeight 改成根据世界坐标来获取地形上的高度"></a>GetHeight 改成根据世界坐标来获取地形上的高度</h3><p>内置方法需要用在高度图内的x, y的索引值才能获得高度，<del>利用竖直Ray，</del>利用内置方法terrain.SampleHeight(Vector3)就可以根据世界坐标中的x,z来获得地形上的y。<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Vector3 <span class="title">GetHeightInTerrain</span>(<span class="params">Terrain terrain, <span class="keyword">float</span> x, <span class="keyword">float</span> y</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Ray ray = <span class="keyword">new</span> Ray(<span class="keyword">new</span> Vector3(x, <span class="number">0</span>, y), Vector3.up);</span><br><span class="line">    RaycastHit hit;</span><br><span class="line">    <span class="keyword">if</span> (Physics.Raycast(ray, <span class="keyword">out</span> hit, Mathf.Infinity))</span><br><span class="line">        <span class="keyword">return</span> hit.point;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Vector3(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p><del>弊端是如果地形上没有这个点，返回的这个点可能需要在调用的地方做个判断。</del></p>
 <hr>
 <h3 id="TreeInstances"><a href="#TreeInstances" class="headerlink" title="TreeInstances"></a>TreeInstances</h3><p>先是建了一些树，一开始还煞费苦心想得到世界坐标系中完美的地形上的种树点，最后发现y值根本不重要。随机出0~1f范围内的x和z就可以直接建树了。<br>想在退出时删掉所有树。treeInstances是内建数组，不能直接修改，需要新建数组读出，修改，再写入。</p>
 <p><strong>参考</strong>:<a href="https://blog.csdn.net/smilingeyes/article/details/41848001" target="_blank" rel="noopener">U3D运行时修改地型中的树木</a><br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">AddTree</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    TreeInstance tempInstance = <span class="keyword">new</span> TreeInstance();</span><br><span class="line">    tempInstance.prototypeIndex = <span class="number">0</span>;</span><br><span class="line">    tempInstance.color = Color.white;</span><br><span class="line">    tempInstance.heightScale = <span class="number">1</span>;</span><br><span class="line">    tempInstance.widthScale = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">float</span> x = UnityEngine.Random.Range(<span class="number">0f</span>, <span class="number">1f</span>);</span><br><span class="line">    <span class="keyword">float</span> y = UnityEngine.Random.Range(<span class="number">0f</span>, <span class="number">1f</span>);</span><br><span class="line">    tempInstance.position = <span class="keyword">new</span> Vector3(x, <span class="number">0</span>, y);</span><br><span class="line">    Debug.Log(tempInstance.position);</span><br><span class="line">    terrain.AddTreeInstance(tempInstance);</span><br><span class="line">    terrain.Flush();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnApplicationQuit</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    List&lt;TreeInstance&gt; treeInstances = <span class="keyword">new</span> List&lt;TreeInstance&gt;(terrain.terrainData.treeInstances);</span><br><span class="line">    treeInstances.Clear();</span><br><span class="line">    terrain.terrainData.treeInstances = treeInstances.ToArray();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>改变所有树的状态，也同样需要借助数组。一开始想着遍历，按索引一个一个更改后分别增删。试了一番才明白每次都在第一个上面操作，然后删掉第一个才对。</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SwitchAllTreeColor</span>(<span class="params"></span>)<span class="comment">//0:spring/summer,1:fall,2:winter</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    List&lt;TreeInstance&gt; treeInstances = <span class="keyword">new</span> List&lt;TreeInstance&gt;(terrain.terrainData.treeInstances);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; terrain.terrainData.treeInstances.Length; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        TreeInstance tempInstance = <span class="keyword">new</span> TreeInstance();</span><br><span class="line">        tempInstance.prototypeIndex = season == <span class="number">0</span> ? <span class="number">0</span> : (season == <span class="number">1</span> ? <span class="number">0</span> : (season == <span class="number">2</span> ? <span class="number">0</span> : (season == <span class="number">3</span> ? <span class="number">1</span> : <span class="number">2</span>)));</span><br><span class="line">        tempInstance.color = treeInstances[<span class="number">0</span>].color;</span><br><span class="line">        tempInstance.lightmapColor = treeInstances[<span class="number">0</span>].lightmapColor;</span><br><span class="line">        tempInstance.heightScale = treeInstances[<span class="number">0</span>].heightScale;</span><br><span class="line">        tempInstance.widthScale = treeInstances[<span class="number">0</span>].widthScale;</span><br><span class="line">        tempInstance.position = treeInstances[<span class="number">0</span>].position;</span><br><span class="line">        treeInstances.RemoveAt(<span class="number">0</span>);</span><br><span class="line">        treeInstances.Add(tempInstance);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    terrain.terrainData.treeInstances = treeInstances.ToArray();</span><br><span class="line">    <span class="comment">// Debug.Log(terrain.terrainData.treeInstances.Length);</span></span><br><span class="line">    terrain.Flush();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SwitchAllTreeStatus</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    List&lt;TreeInstance&gt; treeInstances = <span class="keyword">new</span> List&lt;TreeInstance&gt;(terrain.terrainData.treeInstances);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; terrain.terrainData.treeInstances.Length; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        TreeInstance tempInstance = <span class="keyword">new</span> TreeInstance();</span><br><span class="line">        tempInstance.prototypeIndex = season == <span class="number">0</span> ? <span class="number">0</span> : (season == <span class="number">1</span> ? <span class="number">0</span> : (season == <span class="number">2</span> ? <span class="number">0</span> : (season == <span class="number">3</span> ? <span class="number">1</span> : <span class="number">2</span>)));</span><br><span class="line">        tempInstance.color = treeInstances[<span class="number">0</span>].color;</span><br><span class="line">        tempInstance.lightmapColor = treeInstances[<span class="number">0</span>].lightmapColor;</span><br><span class="line">        tempInstance.heightScale = treeInstances[<span class="number">0</span>].heightScale;</span><br><span class="line">        tempInstance.widthScale = treeInstances[<span class="number">0</span>].widthScale;</span><br><span class="line">        tempInstance.position = treeInstances[<span class="number">0</span>].position;</span><br><span class="line">        treeInstances.RemoveAt(<span class="number">0</span>);</span><br><span class="line">        treeInstances.Add(tempInstance);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    terrain.terrainData.treeInstances = treeInstances.ToArray();</span><br><span class="line">    <span class="comment">// Debug.Log(terrain.terrainData.treeInstances.Length);</span></span><br><span class="line">    terrain.Flush();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 <h2 id="Terrain"><a href="#Terrain" class="headerlink" title="Terrain"></a>Terrain</h2><h3 id="Paint-Texture-Textures-用代码切换"><a href="#Paint-Texture-Textures-用代码切换" class="headerlink" title="Paint Texture - Textures 用代码切换"></a>Paint Texture - Textures 用代码切换</h3><p>默认使用原型列表中的第一个texture，所以改一下原型列表的次序。<br><strong>参考</strong>:<a href="https://blog.csdn.net/lei_7103/article/details/75389215" target="_blank" rel="noopener">动态更换地形纹理图</a><br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">SplatPrototype[] oriSplatPrototypes = <span class="keyword">new</span> SplatPrototype[<span class="number">5</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    oriSplatPrototypes = terrain.terrainData.splatPrototypes;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SwitchSplat</span>(<span class="params"><span class="keyword">int</span> splat</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    SplatPrototype[] newSplatPrototypes = <span class="keyword">new</span> SplatPrototype[<span class="number">1</span>];</span><br><span class="line">    newSplatPrototypes[<span class="number">0</span>] = oriSplatPrototypes[splat];</span><br><span class="line">    terrain.terrainData.splatPrototypes = newSplatPrototypes;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnApplicationQuit</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    terrain.terrainData.splatPrototypes = oriSplatPrototypes;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <hr>
 <h3 id="Terrian-Settings-Base-Terrain-Material-Custom-shader-用代码切换"><a href="#Terrian-Settings-Base-Terrain-Material-Custom-shader-用代码切换" class="headerlink" title="Terrian Settings - Base Terrain - Material:Custom - shader 用代码切换"></a>Terrian Settings - Base Terrain - Material:Custom - shader 用代码切换</h3><p>Material不变，转而切换该材料所用的shader。<br><strong>参考</strong>:<a href="https://blog.csdn.net/thebluewing/article/details/72820162" target="_blank" rel="noopener">unity修改材质属性和更换shader</a><br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">terrain.materialTemplate.shader = Shader.Find(<span class="string">"Custom/myShader"</span>);</span><br></pre></td></tr></table></figure></p>
 <hr>
 
-            </div>
-</article>
 
-                </main>
-                <aside class="aside">
-                    <section class="aside-section">
-                        
-    <h1>Categories</h1>
+  </article>
+  
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+  </script>
+  <div class="busuanzi center">
+    页阅读量:&nbsp;<span id="busuanzi_value_page_pv"></span>&nbsp;・&nbsp;
+    站访问量:&nbsp;<span id="busuanzi_value_site_pv"></span>&nbsp;・&nbsp;
+    站访客数:&nbsp;<span id="busuanzi_value_site_uv"></span>
+  </div>
+
 
     
+        <style>
+        .vcard .vimg{left:0;}
+        </style>
+        <div id="vcomment" class="vcomment" style="padding:0 6% 0 7%;"></div>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+        <script>
+            var GUEST_INFO = ['nick','mail','link'];
+            var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+                return GUEST_INFO.indexOf(item) > -1
+            });
+            var notify = 'false' == true;
+            var verify = 'false' == true;
+            var valine = new Valine();
+            valine.init({
+                el: '.vcomment',
+                notify: notify,
+                verify: verify,
+                appId: "DuOjqDmtdr93rxBKCJ6270Rz-gzGzoHsz",
+                appKey: "JRamYRnnRG9oMFqKueXTIdWG",
+                placeholder: "Just go go",
+                pageSize:'10',
+                avatar:'mm',
+                lang:'zh-cn'
+            })
+        </script>
+    
 
-                    </section>
-                    <section class="aside-section">
-                        
-    <h1>Archives</h1>
-
-    <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a></li></ul>
 
 
-                    </section>
-                    <section class="aside-section tag">
-                        
-    <h1>Tags</h1>
 
-    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Unity3D/">Unity3D</a></li></ul>
+    </div>
+  </div>
+  <footer class="page-footer"><div class="clearfix">
+</div>
+<div class="right-foot">
+    <div class="firstrow">
+        <a href="#top" target="_self">
+        <svg class="i-caret-right" viewbox="0 0 32 32" width="24" height="24" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+            <path d="M10 30 L26 16 10 2 Z"/>
+        </svg>
+        </a>
+        © XXX 20xx-2017
+    </div>
+    <div class="secondrow">
+        <a href="https://github.com/gaoryrt/hexo-theme-pln">
+        Theme Pln
+        </a>
+    </div>
+</div>
+<div class="clearfix">
+</div>
+</footer>
+  <script src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+<script src="/js/search.min.js"></script>
+<script type="text/javascript">
 
-                    </section>
-                </aside>
-        </div>
-    </body>
+// disqus scripts
 
+
+// dropdown scripts
+$(".dropdown").click(function(event) {
+  var current = $(this);
+  event.stopPropagation();
+  $(current).children(".dropdown-content")[($(current).children(".dropdown-content").hasClass("open"))?'removeClass':'addClass']("open")
+});
+$(document).click(function(){
+    $(".dropdown-content").removeClass("open");
+})
+
+var path = "/search.xml";
+searchFunc(path, 'local-search-input', 'local-search-result');
+
+</script>
+
+</body>
 </html>
