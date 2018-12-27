@@ -1,4 +1,127 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Unity3D 总结 · 花開清葉</title><meta name="description" content="Unity3D 总结 - 小栗子"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://liaaaaa.github.io/atom.xml" title="花開清葉"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/tags" target="_self" class="nav-list-link">TAG</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Unity3D 总结</h1><div class="post-info">2018年12月19日</div><div class="post-content"><h2 id="TerrainData"><a href="#TerrainData" class="headerlink" title="TerrainData"></a>TerrainData</h2><blockquote>
+<!DOCTYPE html>
+<html lang="">
+  <head><meta name="generator" content="Hexo 3.8.0">
+    
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="description" content="Unity3D 总结">
+
+
+
+
+  <meta name="keywords" content="Unity3D,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="花開清葉">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1">
+
+
+
+<link rel="canonical" href="http://liaaaaa.github.io/2018/12/Unity3D-总结/">
+
+
+<meta name="description" content="TerrainData 四个方法Vector3 TerrrainData.GetInterpolatedNormal(float x, float y) //0f ~ 1ffloat TerrrainData.GetInterpolatedHeight(float x, float y) //0f ~ 1ffloat TerrrainData.GetHeight(int x, int y) //0">
+<meta name="keywords" content="Unity3D">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity3D 总结">
+<meta property="og:url" content="http://liaaaaa.github.io/2018/12/Unity3D-总结/index.html">
+<meta property="og:site_name" content="花開清葉">
+<meta property="og:description" content="TerrainData 四个方法Vector3 TerrrainData.GetInterpolatedNormal(float x, float y) //0f ~ 1ffloat TerrrainData.GetInterpolatedHeight(float x, float y) //0f ~ 1ffloat TerrrainData.GetHeight(int x, int y) //0">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-12-26T12:29:40.504Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Unity3D 总结">
+<meta name="twitter:description" content="TerrainData 四个方法Vector3 TerrrainData.GetInterpolatedNormal(float x, float y) //0f ~ 1ffloat TerrrainData.GetInterpolatedHeight(float x, float y) //0f ~ 1ffloat TerrrainData.GetHeight(int x, int y) //0">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+
+
+    <title> Unity3D 总结 - 花開清葉 </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">花開清葉</a>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Unity3D 总结
+        
+      </h1>
+
+      <time class="post-time">
+          12月 19 2018
+      </time>
+    </header>
+
+
+
+    
+            <div class="post-content">
+            <h2 id="TerrainData"><a href="#TerrainData" class="headerlink" title="TerrainData"></a>TerrainData</h2><blockquote>
 <p>四个方法<br><code>Vector3 TerrrainData.GetInterpolatedNormal(float x, float y)</code> //0f ~ 1f<br><code>float TerrrainData.GetInterpolatedHeight(float x, float y)</code> //0f ~ 1f<br><code>float TerrrainData.GetHeight(int x, int y)</code> //0 ~ TerrainData.size<br><code>float Terrain.SampleHeight(Vector3 worldPosition)</code></p>
 </blockquote>
 <h3 id="GetHeight-改成根据世界坐标来获取地形上的高度"><a href="#GetHeight-改成根据世界坐标来获取地形上的高度" class="headerlink" title="GetHeight 改成根据世界坐标来获取地形上的高度"></a>GetHeight 改成根据世界坐标来获取地形上的高度</h3><p>内置方法需要用在高度图内的<code>x, y</code>的索引值才能获得高度，<del>利用竖直<code>Ray</code>，</del>利用内置方法<code>terrain.SampleHeight(Vector3)</code>就可以根据世界坐标中的<code>x, z</code>来获得地形上的<code>y</code>。<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Vector3 <span class="title">GetHeightInTerrain</span>(<span class="params">Terrain terrain, <span class="keyword">float</span> x, <span class="keyword">float</span> y</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Ray ray = <span class="keyword">new</span> Ray(<span class="keyword">new</span> Vector3(x, <span class="number">0</span>, y), Vector3.up);</span><br><span class="line">    RaycastHit hit;</span><br><span class="line">    <span class="keyword">if</span> (Physics.Raycast(ray, <span class="keyword">out</span> hit, Mathf.Infinity))</span><br><span class="line">        <span class="keyword">return</span> hit.point;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Vector3(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -108,4 +231,80 @@
 <blockquote>
 <p>顶点ID：SV_VertexID #pragma target 3.5</p>
 </blockquote>
-</div></article></div></main><footer><div class="paginator"><a href="/2018/12/hello-world/" class="next">NEXT</a></div><div class="copyright"><p>© 2018 <a href="http://liaaaaa.github.io">小栗子</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+		
+		<div class="post-tags">
+		  
+			<a href="/tags/Unity3D/">Unity3D</a>
+		  
+		</div>
+		
+
+        
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2018/12/hello-world/">
+        <span class="next-text nav-default">Hello World</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+    2018
+    <span class="footer-author">小栗子.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
+    </span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>
